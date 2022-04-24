@@ -1,0 +1,112 @@
+<div class="conainer">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-container">
+        <h4 class="card-header">Sender</h4>
+        <div class="card-body">
+          <form name="formSender" #f="ngForm" novalidate>
+            <!-- senderName -->
+            <div class="form-group">
+              <label for="senderName">Name</label>
+              <input type="text" class="form-control" name="senderName" [(ngModel)]="formSender.senderName" senderName
+                #senderName="ngModel" />
+            </div>
+            <!-- senderPhone -->
+            <div class="form-group">
+              <label for="senderPhone">Phone number</label>
+              <input type="number" class="form-control" name="senderPhone" [(ngModel)]="formSender.senderPhone"
+                minlength="6" #senderPhone="ngModel" />
+              <div class="alert alert-danger" role="alert" *ngIf="senderPhone.errors && f.submitted">
+                <div *ngIf="senderPhone.errors['required']">Phone is required</div>
+                <div *ngIf="senderPhone.errors['minlength']">
+                  Phone must be at least 6 characters
+                </div>
+              </div>
+            </div>
+            <!-- pickupAdress -->
+            <div class="form-group">
+              <label for="pickupAdress">Address</label>
+              <input type="text" class="form-control" name="pickupAdress" [(ngModel)]="formSender.pickupAdress"
+                minlength="6" #pickupAdress="ngModel" />
+            </div>
+            <!-- senderCity -->
+            <div class="form-group">
+              <label for="senderCity">City</label> 
+              <select class="form-control" name="senderCity" 
+                      [(ngModel)]="formReceiver.senderCity"  
+                      #senderCity="ngModel" >
+                      <option *ngFor="let city of cities"  [ngValue]="city.price"
+                       [value]="city">{{city.enName}}</option> 
+              </select>  
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-container">
+        <h4 class="card-header">Receiver</h4>
+        <div class="card-body">
+          <form name="formReceiver" #fr="ngForm" novalidate>
+            <!-- receiverName -->
+            <div class="form-group">
+              <label for="receiverName">Name</label>
+              <input type="text" class="form-control" name="receiverName" [(ngModel)]="formReceiver.receiverName"
+                receiverName #receiverName="ngModel" />
+            </div>
+            <!-- receiverPhone -->
+            <div class="form-group">
+              <label for="receiverPhone">Phone number</label>
+              <input type="number" class="form-control" name="receiverPhone" [(ngModel)]="formReceiver.receiverPhone"
+                #receiverPhone="ngModel" />
+              <div class="alert alert-danger" role="alert" *ngIf="receiverPhone.errors && f.submitted">
+                <div *ngIf="receiverPhone.errors['required']">Phone is required</div>
+                <div *ngIf="receiverPhone.errors['minlength']">
+                  Phone must be at least 6 characters
+                </div>
+              </div>
+            </div>
+            <!-- receiverAdress -->
+            <div class="form-group">
+              <label for="receiverAdress">Address</label>
+              <input type="text" class="form-control" name="receiverAdress" [(ngModel)]="formReceiver.receiverAdress"
+                #receiverAdress="ngModel" />
+            </div>
+            <!-- receiverCity -->
+            <div class="form-group"> 
+              <label for="receiverCity">City</label>
+              <select class="form-control" name="receiverCity"
+                      [(ngModel)]="formReceiver.receiverCity" name="power"
+                      #receiverCity="ngModel">
+                      <option *ngFor="let city of cities" [value]="city">{{city.enName}}</option> 
+              </select>  
+            </div>
+            <!-- Datepicker  -->
+            <div class="row">
+              <div class="col-md-6">
+                <app-date-picker></app-date-picker> 
+              </div>
+              <!-- possible hours for the delivery  -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="senderCity">City </label>
+                  <input type="text" class="form-control" name="senderCity" [(ngModel)]="formReceiver.senderCity"
+                    #senderCity="ngModel" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="hero-unit">
+      <h4>Delivery price  </h4>
+      <p>Cities amount <span></span></p>
+      <p>Vat amount <span></span></p>
+    </div>
+  </div>
+</div>

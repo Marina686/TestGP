@@ -1,5 +1,5 @@
 {
-  "name": "angular13-jwt-auth",
+  "name": "test",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -18,6 +18,10 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^12.0.2",
+    "@popperjs/core": "^2.11.5",
+    "common-module": "^0.0.28",
+    "node-angular-http-client": "^1.1.7",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
